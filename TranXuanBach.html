@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trần Xuân Bách — Portfolio</title>
+<meta name="description" content="Trần Xuân Bách — IB student, IoT & AI engineer. Portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+/* apply saved theme/lang before paint */
+(function(){try{var t=localStorage.getItem('txb-theme');if(t)document.documentElement.dataset.theme=t;var l=localStorage.getItem('txb-lang');if(l)document.documentElement.lang=l;}catch(e){}})();
+</script>
+<style>
+:root{
+  --bg:#fafaf8;--bg2:#f2f2ee;--card:#ffffff;--ink:#111214;--ink2:#3b3e44;--muted:#7a7e86;--line:#e6e6e1;
+  --accent:#0e9f6e;--accent-soft:#e3f5ee;--shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px -12px rgba(0,0,0,.12);
+  --sans:'Be Vietnam Pro',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.22,1,.36,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c0d0f;--bg2:#131418;--card:#16171b;--ink:#f1f2f4;--ink2:#c5c8ce;--muted:#8a8f98;--line:#24262c;
+  --accent:#34d399;--accent-soft:rgba(52,211,153,.12);--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -14px rgba(0,0,0,.6);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c0d0f;--bg2:#131418;--card:#16171b;--ink:#f1f2f4;--ink2:#c5c8ce;--muted:#8a8f98;--line:#24262c;
+  --accent:#34d399;--accent-soft:rgba(52,211,153,.12);--shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -14px rgba(0,0,0,.6);color-scheme:dark}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .4s,color .4s}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--accent);color:#fff}
+
+/* language switching */
+html[lang="vi"] [data-en], html[lang="en"] [data-vi]{display:none!important}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+section{padding:clamp(72px,10vw,120px) 0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:18px;height:1.5px;background:currentColor}
+h2{font-size:clamp(30px,4.2vw,46px);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.sub{color:var(--muted);max-width:620px;font-size:17px}
+.head{margin-bottom:clamp(36px,5vw,56px)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* ---------- nav ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
+header.solid{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);border-color:var(--line)}
+.nav{max-width:1320px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{white-space:nowrap;font-weight:700;letter-spacing:-.02em;font-size:17px;display:flex;align-items:center;gap:10px}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-style:normal;font-size:13px}
+.menu{display:flex;gap:4px;list-style:none}
+.menu a{font-size:14px;white-space:nowrap;color:var(--muted);padding:8px 10px;border-radius:8px;transition:color .2s,background .2s}
+.menu a:hover{color:var(--ink)}
+.menu a.active{color:var(--ink);background:var(--bg2)}
+.tools{display:flex;align-items:center;gap:8px}
+.seg{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card)}
+.seg button{font-family:var(--mono);font-size:12px;padding:5px 10px;border-radius:999px;color:var(--muted);transition:background .25s,color .25s}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:var(--card);transition:transform .3s var(--ease)}
+.icon-btn:hover{transform:rotate(20deg)}
+.icon-btn svg{width:18px;height:18px}
+.icon-btn .moon{display:none}
+:root[data-theme="dark"] .icon-btn .sun{display:none}:root[data-theme="dark"] .icon-btn .moon{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .icon-btn .sun{display:none}:root:not([data-theme="light"]) .icon-btn .moon{display:block}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:14.5px;font-weight:500;transition:transform .3s var(--ease),background .3s,box-shadow .3s;white-space:nowrap}
+.btn svg{width:16px;height:16px}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn.ghost{border:1px solid var(--line);background:var(--card)}
+.btn.ghost:hover{transform:translateY(-2px)}
+.btn.sm{padding:8px 14px;font-size:13px}
+.burger{display:none}
+
+/* ---------- hero ---------- */
+#home{padding-top:clamp(120px,16vw,170px)}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);border:1px solid var(--line);background:var(--card);padding:6px 12px 6px 8px;border-radius:999px;margin-bottom:22px}
+.pill b{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+h1{font-size:clamp(44px,7vw,84px);font-weight:700;letter-spacing:-.045em;line-height:1}
+h1 span{color:var(--muted);font-weight:300}
+.role{font-size:clamp(18px,2vw,22px);color:var(--ink2);margin-top:18px;font-weight:500}
+.intro{color:var(--muted);margin-top:16px;max-width:540px;font-size:17px}
+.cta{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:48px;border-top:1px solid var(--line);padding-top:24px;gap:16px}
+.stat b{display:block;font-size:clamp(26px,3vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.stat span{font-size:13px;color:var(--muted)}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:var(--bg2);box-shadow:var(--shadow)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.08);transition:transform 1.6s var(--ease)}
+.portrait.in img{transform:scale(1)}
+.portrait .badge{position:absolute;left:16px;bottom:16px;right:16px;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:12px;font-size:13px}
+.portrait .badge i{font-style:normal;width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.portrait .badge b{display:block;font-size:14px}
+.portrait .badge span{color:var(--muted)}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
+.about p{color:var(--ink2);font-size:17px;margin-bottom:14px}
+.skills{display:grid;gap:12px}
+.skill{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px 20px;display:grid;grid-template-columns:40px 1fr;gap:14px;transition:border-color .3s,transform .4s var(--ease)}
+.skill:hover{border-color:var(--accent);transform:translateX(4px)}
+.skill .ic{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.skill .ic svg{width:20px;height:20px}
+.skill h4{font-size:15.5px;font-weight:600;margin-bottom:2px}
+.skill p{font-size:14px;color:var(--muted);margin:0}
+
+/* ---------- awards ---------- */
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.award{border:1px solid var(--line);background:var(--card);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s}
+.award:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.award .media{aspect-ratio:4/3;background:var(--bg2);overflow:hidden;position:relative}
+.award .media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.award:hover .media img{transform:scale(1.04)}
+.award .media.contain img{object-fit:contain;padding:16px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.15))}
+.award .media .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px}
+.award .media .ph b{font-size:56px;font-weight:700;letter-spacing:-.05em;color:var(--ink);opacity:.9;line-height:1}
+.award .media .ph span{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.1em}
+.award .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.medal{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:4px 10px;border-radius:999px}
+.medal.gold{background:#fdf3d7;color:#8a6200}.medal.bronze{background:#f7e6d8;color:#8a4b17}
+:root[data-theme="dark"] .medal.gold{background:rgba(234,179,8,.15);color:#facc15}:root[data-theme="dark"] .medal.bronze{background:rgba(205,127,50,.18);color:#e8a36b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .medal.gold{background:rgba(234,179,8,.15);color:#facc15}:root:not([data-theme="light"]) .medal.bronze{background:rgba(205,127,50,.18);color:#e8a36b}}
+.award h3{font-size:18px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.award p{font-size:14.5px;color:var(--muted)}
+.zoom{cursor:zoom-in}
+
+/* ---------- education ---------- */
+.edu{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}
+.card{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:clamp(22px,3vw,32px)}
+.school{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.school h3{font-size:21px;font-weight:600;letter-spacing:-.01em}
+.school span{font-size:14px;color:var(--muted)}
+.subjects{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.subj{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:12px;background:var(--bg2);font-size:14.5px}
+.subj em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted);margin-right:8px}
+.subj b{font-family:var(--mono);font-weight:500}
+.ib{margin-top:18px;display:flex;align-items:center;justify-content:space-between;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.ib b{color:var(--ink);font-size:20px;font-weight:600}
+.tests{display:grid;gap:18px}
+.test{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.test h4{font-size:15px;font-weight:600}
+.test span{font-size:13px;color:var(--muted)}
+.test b{font-size:clamp(40px,5vw,54px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.bar{height:6px;border-radius:99px;background:var(--bg2);margin-top:14px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width 1.6s var(--ease)}
+
+/* ---------- research ---------- */
+.papers{display:grid;gap:18px}
+.paper{display:grid;grid-template-columns:220px 1fr;gap:clamp(20px,3vw,36px);border:1px solid var(--line);background:var(--card);border-radius:20px;padding:clamp(18px,2.5vw,26px);transition:box-shadow .4s}
+.paper:hover{box-shadow:var(--shadow)}
+.paper .doc{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;aspect-ratio:1/1.3;align-self:start}
+.paper .doc img{width:100%;height:100%;object-fit:cover;object-position:top}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.paper h3{font-size:clamp(19px,2vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3;margin-bottom:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.kpi{background:var(--bg2);border-radius:12px;padding:12px}
+.kpi b{display:block;font-size:22px;font-weight:600;letter-spacing:-.02em}
+.kpi span{font-size:12.5px;color:var(--muted);line-height:1.35;display:block}
+.paper ul{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--ink2);margin-bottom:16px}
+.paper li{padding-left:18px;position:relative}
+.paper li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink2)}
+.link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--accent);margin-top:14px}
+.link svg{width:14px;height:14px;transition:transform .3s}
+.link:hover svg{transform:translate(2px,-2px)}
+
+/* ---------- project ---------- */
+.proj-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:end;margin-bottom:28px}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.res{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px}
+.res b{display:block;font-size:30px;font-weight:700;letter-spacing:-.03em;color:var(--accent);line-height:1.1}
+.res span{font-size:13px;color:var(--muted)}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px}
+.bento figure{position:relative;border-radius:18px;overflow:hidden;background:var(--bg2)}
+.bento figure img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.bento figure:hover img{transform:scale(1.05)}
+.bento figcaption{position:absolute;left:10px;bottom:10px;font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;backdrop-filter:blur(6px);opacity:0;transform:translateY(6px);transition:.35s var(--ease)}
+.bento figure:hover figcaption{opacity:1;transform:none}
+.b-wide{grid-column:span 2}.b-tall{grid-row:span 2}.b-big{grid-column:span 2;grid-row:span 2}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.step{border-top:2px solid var(--line);padding-top:16px;position:relative}
+.step::before{content:"";position:absolute;top:-2px;left:0;height:2px;width:0;background:var(--accent);transition:width 1.2s var(--ease)}
+.step.in::before{width:100%}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.step h4{font-size:16px;font-weight:600;margin:4px 0}
+.step p{font-size:14px;color:var(--muted)}
+.slides{margin-top:36px}
+.slides h4{font-size:15px;font-weight:600;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.slides h4 span{font-size:13px;color:var(--muted);font-weight:400}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.strip img{height:180px;width:auto;border-radius:12px;border:1px solid var(--line);scroll-snap-align:start;flex:none;transition:transform .4s var(--ease)}
+.strip img:hover{transform:translateY(-4px)}
+
+/* ---------- leadership & activities ---------- */
+.lead{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.lead h3{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.lead .org{font-size:14px;color:var(--accent);margin-bottom:16px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.nums div{background:var(--bg2);border-radius:12px;padding:12px}
+.nums b{display:block;font-size:22px;font-weight:600;letter-spacing:-.02em}
+.nums span{font-size:12.5px;color:var(--muted)}
+.lead ul{list-style:none;display:grid;gap:6px;font-size:14.5px;color:var(--ink2)}
+.lead li{padding-left:18px;position:relative}
+.lead li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.goal{font-size:13px;color:var(--muted);margin-bottom:16px}
+.goal .track{height:8px;border-radius:99px;background:var(--bg2);margin-top:8px;overflow:hidden}
+.goal .track i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width 1.8s var(--ease)}
+
+.act{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(20px,4vw,48px);align-items:center;border:1px solid var(--line);background:var(--card);border-radius:24px;padding:clamp(18px,2.5vw,28px);margin-bottom:18px}
+.act.rev{grid-template-columns:1.2fr 1fr}
+.act.rev .gal{order:2}
+.act .when{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.act h3{font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1.25;margin:6px 0 10px}
+.act p{color:var(--ink2);font-size:15px;margin-bottom:8px}
+.act .note{font-size:13px;color:var(--muted)}
+.gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:clamp(240px,30vw,340px)}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:14px;transition:transform .8s var(--ease)}
+.gal img:hover{transform:scale(1.02)}
+.gal img:first-child{grid-row:span 2}
+.gal.one{grid-template-columns:1fr;grid-template-rows:1fr}
+.gal.one{height:auto}.gal.one img{grid-row:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:var(--shadow)}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mini{border:1px solid var(--line);background:var(--card);border-radius:18px;padding:22px;transition:transform .4s var(--ease),border-color .3s}
+.mini:hover{transform:translateY(-4px);border-color:var(--accent)}
+.mini .when{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.mini h4{font-size:17px;font-weight:600;margin:6px 0;line-height:1.3}
+.mini p{font-size:14px;color:var(--muted)}
+
+/* ---------- gallery ---------- */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.filters button{font-size:13.5px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--card);transition:.25s}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.masonry{columns:4 220px;column-gap:12px}
+.masonry figure{break-inside:avoid;margin-bottom:12px;border-radius:14px;overflow:hidden;background:var(--bg2);transition:opacity .4s,transform .4s var(--ease)}
+.masonry figure.hide{display:none}
+.masonry img{width:100%;height:auto;transition:transform .8s var(--ease)}
+.masonry figure:hover img{transform:scale(1.04)}
+
+/* ---------- contact ---------- */
+.contact{border-radius:28px;background:var(--ink);color:var(--bg);padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.contact h2{color:var(--bg)}
+.contact p{opacity:.7;max-width:460px}
+.contact .ways{display:grid;gap:10px}
+.contact .way{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:14px;border:1px solid color-mix(in srgb,var(--bg) 18%,transparent);transition:background .3s}
+.contact .way:hover{background:color-mix(in srgb,var(--bg) 8%,transparent)}
+.contact .way span{font-size:13px;opacity:.6;display:block}
+.contact .way b{font-weight:500;word-break:break-all}
+.contact .btn.primary{background:var(--bg);color:var(--ink)}
+footer{padding:28px 0 40px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:100;background:rgba(8,9,11,.92);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;padding:60px 16px}
+#lb.open{opacity:1;visibility:visible}
+#lb img{max-width:min(1200px,100%);max-height:100%;border-radius:10px;object-fit:contain;transform:scale(.96);transition:transform .45s var(--ease)}
+#lb.open img{transform:none}
+#lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#ddd;font-size:14px;padding:0 60px}
+#lb button{position:absolute;color:#fff;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:22px;transition:background .2s}
+#lb button:hover{background:rgba(255,255,255,.2)}
+#lb .x{top:16px;right:16px}#lb .pv{left:16px;top:50%;transform:translateY(-50%)}#lb .nx{right:16px;top:50%;transform:translateY(-50%)}
+
+#top{position:fixed;right:18px;bottom:18px;z-index:40;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;opacity:0;transform:translateY(10px);transition:.35s var(--ease);box-shadow:var(--shadow)}
+#top.show{opacity:1;transform:none}
+#bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:60;width:0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1340px){
+  .menu{position:fixed;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px 16px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:.3s var(--ease)}
+  .menu.open{transform:none;opacity:1;visibility:visible}
+  .menu a{display:block;padding:12px}
+  .burger{display:grid}
+  .tools .cv-nav{display:none}
+}
+@media (max-width:900px){
+  .hero,.about,.edu,.proj-top,.lead,.contact,.act,.act.rev{grid-template-columns:1fr}
+  .act.rev .gal{order:0}
+  .portrait{max-width:420px;aspect-ratio:1/1}
+  .awards,.minis{grid-template-columns:1fr 1fr}
+  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .stats{grid-template-columns:1fr 1fr}
+  .awards,.minis,.subjects{grid-template-columns:1fr}
+  .paper{grid-template-columns:1fr}.paper .doc{max-width:200px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .results{grid-template-columns:1fr 1fr 1fr}.res b{font-size:24px}
+  .bento{grid-auto-rows:140px}
+  .b-big{grid-column:span 2;grid-row:span 2}
+  .strip img{height:140px}
+  .logo span{display:none}
+  .seg button{padding:5px 8px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- ========== NAV ========== -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#home" class="logo"><i>XB</i><span>Trần Xuân Bách</span></a>
+    <ul class="menu" id="menu">
+      <li><a href="#about"><span data-vi>Giới thiệu</span><span data-en>About</span></a></li>
+      <li><a href="#awards"><span data-vi>Giải thưởng</span><span data-en>Awards</span></a></li>
+      <li><a href="#education"><span data-vi>Học vấn</span><span data-en>Education</span></a></li>
+      <li><a href="#research"><span data-vi>Nghiên cứu</span><span data-en>Research</span></a></li>
+      <li><a href="#project"><span data-vi>Dự án</span><span data-en>Project</span></a></li>
+      <li><a href="#activities"><span data-vi>Hoạt động</span><span data-en>Activities</span></a></li>
+      <li><a href="#gallery"><span data-vi>Thư viện ảnh</span><span data-en>Gallery</span></a></li>
+      <li><a href="#contact"><span data-vi>Liên hệ</span><span data-en>Contact</span></a></li>
+    </ul>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Language">
+        <button data-lang="vi">VI</button><button data-lang="en">EN</button>
+      </div>
+      <button class="icon-btn" id="theme" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn primary sm cv-nav" href="TranXuanBach_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>CV</a>
+      <button class="icon-btn burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ========== HERO ========== -->
+<section id="home">
+  <div class="wrap hero">
+    <div>
+      <div class="pill rv"><b></b><span data-vi>Brighton College Vietnam · IB Diploma · 2027</span><span data-en>Brighton College Vietnam · IB Diploma · Class of 2027</span></div>
+      <h1 class="rv d1">Trần Xuân<br>Bách<span>.</span></h1>
+      <p class="role rv d2"><span data-vi>Kỹ sư IoT &amp; AI tương lai</span><span data-en>Aspiring IoT &amp; AI Engineer</span></p>
+      <p class="intro rv d2"><span data-vi>Mình thiết kế hệ thống nhúng, cảm biến và mô hình học sâu để giải những bài toán thật: từ chất lượng không khí đô thị đến chẩn đoán y tế qua hình ảnh.</span><span data-en>I build embedded systems, sensors and deep-learning models for real problems, from urban air quality to medical image diagnosis.</span></p>
+      <div class="cta rv d3">
+        <a class="btn primary" href="TranXuanBach_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg><span data-vi>Tải CV</span><span data-en>Download CV</span></a>
+        <a class="btn ghost" href="#project"><span data-vi>Xem dự án</span><span data-en>View project</span> →</a>
+      </div>
+      <div class="stats rv d3">
+        <div class="stat"><b data-count="8.5" data-dec="1">0</b><span>IELTS</span></div>
+        <div class="stat"><b data-count="1400">0</b><span>SAT</span></div>
+        <div class="stat"><b data-count="2">0</b><span data-vi>Bài báo khoa học</span><span data-en>Published papers</span></div>
+        <div class="stat"><b data-count="3">0</b><span data-vi>Giải quốc tế</span><span data-en>International awards</span></div>
+      </div>
+    </div>
+    <div class="portrait rv d2">
+      <img src="images/portrait.jpg" alt="Trần Xuân Bách">
+      <div class="badge"><i>AU</i><div><b data-vi>2 Huy chương Vàng</b><b data-en>2× Gold Medals</b><span>AIGC · 1I1W</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow rv"><span data-vi>Giới thiệu</span><span data-en>About</span></div>
+      <h2 class="rv d1"><span data-vi>Khi công nghệ biết “lắng nghe” không khí.</span><span data-en>When technology learns to listen to the air.</span></h2>
+      <p class="rv d2"><span data-vi>Từ nhỏ, mình đã tò mò về những hệ thống vô hình giữ cho hành tinh vận hành: không khí ta thở, sự cân bằng của hệ sinh thái. Khi các thành phố ngày càng đông đúc và ô nhiễm hơn, mình tự hỏi: liệu có thể xây một hệ thống đủ thông minh để giúp Trái Đất “thở” lại?</span><span data-en>I've always been fascinated by the invisible systems that keep our planet alive: the air we breathe and the balance of ecosystems. As cities grow denser and pollution worsens, I began to ask: what if we could build a system smart enough to help the Earth breathe again?</span></p>
+      <p class="rv d2"><span data-vi>Câu hỏi đó dẫn mình đến IoT, cảm biến và machine learning, cùng hai bài báo khoa học đã xuất bản và các dự án phục vụ cộng đồng.</span><span data-en>That question led me to IoT, sensors and machine learning, two published research papers, and community-focused projects.</span></p>
+    </div>
+    <div class="skills">
+      <div class="skill rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div><div><h4 data-vi>Kỹ thuật &amp; IoT</h4><h4 data-en>Engineering &amp; IoT</h4><p data-vi>Hệ thống nhúng Arduino/ESP32, cảm biến PM2.5 &amp; CO₂, mạng NB-IoT.</p><p data-en>Embedded systems on Arduino/ESP32, PM2.5 &amp; CO₂ sensors, NB-IoT networking.</p></div></div>
+      <div class="skill rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div><h4 data-vi>Dữ liệu &amp; AI</h4><h4 data-en>Data &amp; AI</h4><p data-vi>Hồi quy tuyến tính, LSTM, CNN (ResNet, MobileNet), phân tích dữ liệu lớn.</p><p data-en>Linear regression, LSTM, CNNs (ResNet, MobileNet) and big-data analysis.</p></div></div>
+      <div class="skill rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg></div><div><h4 data-vi>Thiết kế kỹ thuật</h4><h4 data-en>Technical design</h4><p data-vi>CAD cho mẫu in 3D; Canva, Photoshop cho báo cáo kỹ thuật.</p><p data-en>CAD for 3D-printed prototypes; Canva &amp; Photoshop for technical reports.</p></div></div>
+      <div class="skill rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 20c0-2.5 1.5-4.5 3.5-4.5s3.5 2 3.5 4.5"/></svg></div><div><h4 data-vi>Lãnh đạo dự án</h4><h4 data-en>Project leadership</h4><p data-vi>Quản lý ngân sách $2,000+, gây quỹ đa kênh, điều phối nhóm liên ngành.</p><p data-en>Managing $2,000+ budgets, multi-channel fundraising and cross-functional teams.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AWARDS ========== -->
+<section id="awards" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow rv"><span data-vi>Giải thưởng</span><span data-en>Honors &amp; Awards</span></div>
+      <h2 class="rv d1"><span data-vi>Thành tích nổi bật</span><span data-en>Recognition</span></h2>
+    </div>
+    <div class="awards">
+      <article class="award rv">
+        <div class="media contain zoom" data-lb="aw"><img src="images/aigc-certificate.jpg?v=2" alt="AIGC Gold Award certificate" loading="lazy" data-cap-vi="Chứng nhận Huy chương Vàng AIGC" data-cap-en="AIGC Gold Award certificate"></div>
+        <div class="body"><span class="medal gold">GOLD</span>
+          <h3>Advanced Innovation Global Competition (AIGC)</h3>
+          <div class="meta" style="margin:0">Singapore · 01/2025</div>
+          <p data-vi>Đề tài “Phát hiện bệnh tiểu đường bằng machine learning qua ảnh chụp võng mạc”.</p>
+          <p data-en>“Detecting Diabetes Using Machine Learning Through Retinography Images.”</p>
+        </div>
+      </article>
+      <article class="award rv d1">
+        <div class="media zoom" data-lb="aw"><img src="images/airguard-pitch.jpg" alt="1I1W presentation" loading="lazy" data-cap-vi="Thuyết trình dự án IoT" data-cap-en="Presenting the IoT project"></div>
+        <div class="body"><span class="medal gold">GOLD</span>
+          <h3>1-Idea 1-World (1I1W) International Innovation Design</h3>
+          <p data-vi>Hệ thống IoT giám sát và quản lý mảng xanh đô thị cho hạ tầng thành phố thông minh.</p>
+          <p data-en>An IoT system to monitor and manage urban greenery for smart-city infrastructure.</p>
+        </div>
+      </article>
+      <article class="award rv d2">
+        <div class="media"><div class="ph"><div><b>BPhO</b><span>BRITISH PHYSICS OLYMPIAD</span></div></div></div>
+        <div class="body"><span class="medal bronze">BRONZE</span>
+          <h3>British Physics Olympiad · Round 1</h3>
+          <p data-vi>Giải Đồng vòng 1 do Hội đồng BPhO trao cho thành tích xuất sắc ở vòng loại.</p>
+          <p data-en>Bronze Award from the BPhO Committee for outstanding performance in the qualifying round.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EDUCATION ========== -->
+<section id="education">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow rv"><span data-vi>Học vấn</span><span data-en>Education</span></div>
+      <h2 class="rv d1"><span data-vi>Nền tảng học thuật</span><span data-en>Academic foundation</span></h2>
+    </div>
+    <div class="edu">
+      <div class="card rv">
+        <div class="school"><h3>Brighton College Vietnam · IB Diploma</h3><span>Hà Nội · 09/2024 – 06/2027</span></div>
+        <div class="subjects">
+          <div class="subj"><span><em>HL</em><span data-vi>Kinh tế</span><span data-en>Economics</span></span><b>5</b></div>
+          <div class="subj"><span><em>HL</em><span data-vi>Vật lý</span><span data-en>Physics</span></span><b>5</b></div>
+          <div class="subj"><span><em>HL</em><span data-vi>Văn học Việt Nam</span><span data-en>Vietnamese Literature</span></span><b>5</b></div>
+          <div class="subj"><span><em>SL</em><span data-vi>Hoá học</span><span data-en>Chemistry</span></span><b>5</b></div>
+          <div class="subj"><span><em>SL</em>English A: Lang &amp; Lit</span><b>4</b></div>
+          <div class="subj"><span><em>SL</em><span data-vi>Toán AA</span><span data-en>Mathematics AA</span></span><b>4</b></div>
+        </div>
+        <div class="ib"><span data-vi>Điểm IB dự đoán</span><span data-en>Predicted IB score</span><b>28/45</b></div>
+      </div>
+      <div class="tests">
+        <div class="card rv d1"><div class="test"><div><h4>IELTS Academic</h4><span data-vi>Tháng 10/2025</span><span data-en>Oct 2025</span></div><b>8.5</b></div><div class="bar"><i data-w="94"></i></div></div>
+        <div class="card rv d2"><div class="test"><div><h4>SAT</h4><span data-vi>Tháng 9/2025</span><span data-en>Sep 2025</span></div><b>1400</b></div><div class="bar"><i data-w="87.5"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESEARCH ========== -->
+<section id="research" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow rv"><span data-vi>Nghiên cứu khoa học</span><span data-en>Research</span></div>
+      <h2 class="rv d1"><span data-vi>Bài báo đã xuất bản</span><span data-en>Published papers</span></h2>
+    </div>
+    <div class="papers">
+      <article class="paper rv">
+        <div class="doc zoom" data-lb="paper"><img src="images/paper-iot-1.jpg" alt="IJSRM paper first page" loading="lazy" data-cap-vi="Trang đầu bài báo IJSRM" data-cap-en="IJSRM paper, first page"></div>
+        <div>
+          <div class="meta"><span>IJSRM · Vol. 13, Issue 07 · 2025</span><span data-vi>Đồng tác giả</span><span data-en>Co-author</span></div>
+          <h3>Applications and Impacts of Internet of Things (IoT) in Logistics Industry in Vietnam</h3>
+          <div class="kpis">
+            <div class="kpi"><b>68%</b><span data-vi>DN lớn ứng dụng IoT</span><span data-en>IoT adoption, large firms</span></div>
+            <div class="kpi"><b>−15%</b><span data-vi>Hư hỏng hàng chuỗi lạnh</span><span data-en>Cold-chain product damage</span></div>
+            <div class="kpi"><b>$3.13B</b><span data-vi>Dự báo quy mô 2025</span><span data-en>Forecast value, 2025</span></div>
+            <div class="kpi"><b>12.7%</b><span data-vi>Tăng trưởng/năm</span><span data-en>Annual growth</span></div>
+          </div>
+          <ul>
+            <li data-vi>Phân tích chuyển đổi số ngành logistics Việt Nam và hiệu quả giám sát thời gian thực trong chuỗi lạnh.</li>
+            <li data-en>Analysed Vietnam's logistics digital transformation and real-time monitoring in cold-chain management.</li>
+          </ul>
+          <div class="tags"><span>IoT</span><span>Logistics</span><span>Cold chain</span></div>
+          <a class="link" href="https://doi.org/10.18535/ijsrm/v13i07.em08" target="_blank" rel="noopener">DOI: 10.18535/ijsrm/v13i07.em08 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+      <article class="paper rv">
+        <div class="doc zoom" data-lb="paper"><img src="images/paper-fruit-1.jpg" alt="IJARCS paper first page" loading="lazy" data-cap-vi="Trang đầu bài báo IJARCS" data-cap-en="IJARCS paper, first page"></div>
+        <div>
+          <div class="meta"><span>IJARCS · Vol. 15, No. 6 · Nov–Dec 2024</span><span data-vi>Đồng tác giả</span><span data-en>Co-author</span></div>
+          <h3>Classification of Fruits using Image Processing and Deep Neural Networks</h3>
+          <div class="kpis">
+            <div class="kpi"><b>94%</b><span data-vi>Độ chính xác cao nhất</span><span data-en>Peak accuracy</span></div>
+            <div class="kpi"><b>3</b><span data-vi>Kiến trúc CNN</span><span data-en>CNN architectures</span></div>
+          </div>
+          <ul>
+            <li data-vi>So sánh AlexNet, ResNet-50 và MobileNetV3; tăng cường dữ liệu bằng xoay ảnh, chỉnh màu, nhiễu Gaussian.</li>
+            <li data-en>Compared AlexNet, ResNet-50 and MobileNetV3, with augmentation via rotation, colour adjustment and Gaussian noise.</li>
+            <li data-vi>Tối ưu MobileNetV3 để chạy trên thiết bị cấu hình thấp, ứng dụng trong nông nghiệp và công nghiệp.</li>
+            <li data-en>Optimised MobileNetV3 for low-power devices in agriculture and industry.</li>
+          </ul>
+          <div class="tags"><span>Deep Learning</span><span>Computer Vision</span><span>MobileNetV3</span></div>
+          <a class="link" href="http://dx.doi.org/10.26483/ijarcs.v15i6.7156" target="_blank" rel="noopener">DOI: 10.26483/ijarcs.v15i6.7156 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECT ========== -->
+<section id="project">
+  <div class="wrap">
+    <div class="proj-top">
+      <div>
+        <div class="eyebrow rv"><span data-vi>Dự án cá nhân · 2025</span><span data-en>Personal project · 2025</span></div>
+        <h2 class="rv d1">AirGuard</h2>
+        <p class="sub rv d2"><span data-vi>Hệ thống giám sát và lọc không khí thông minh, tự điều chỉnh: cảm biến đo liên tục, AI nhận diện đỉnh ô nhiễm, tự kích hoạt lọc khí và gửi cảnh báo qua ứng dụng.</span><span data-en>An intelligent, self-regulating air-quality monitoring and purification system: sensors measure continuously, AI detects pollution spikes, filtration switches on automatically and alerts go to an app.</span></p>
+      </div>
+      <div class="results rv d2">
+        <div class="res"><b data-count="92" data-suf="%">0</b><span data-vi>Độ chính xác so với trạm AQI nhà nước</span><span data-en>Accuracy vs. government AQI stations</span></div>
+        <div class="res"><b data-count="35" data-suf="%">0</b><span data-vi>Giảm nồng độ ô nhiễm cục bộ</span><span data-en>Lower local pollutant concentration</span></div>
+        <div class="res"><b data-count="2" data-suf="s">0</b><span data-vi>Độ trễ cảnh báo trên app</span><span data-en>App alert latency</span></div>
+      </div>
+    </div>
+
+    <div class="bento">
+      <figure class="b-big rv zoom" data-lb="proj"><img src="images/airguard-coding.jpg" alt="" loading="lazy" data-cap-vi="Lập trình và thử nghiệm cảm biến" data-cap-en="Programming and testing the sensor"><figcaption data-vi>Lập trình cảm biến</figcaption><figcaption data-en>Sensor programming</figcaption></figure>
+      <figure class="rv d1 zoom" data-lb="proj"><img src="images/solder-3.jpg" alt="" loading="lazy" data-cap-vi="Hàn mạch nguồn pin" data-cap-en="Soldering the battery board"><figcaption data-vi>Hàn mạch</figcaption><figcaption data-en>Soldering</figcaption></figure>
+      <figure class="b-tall rv d2 zoom" data-lb="proj"><img src="images/assembly-3.jpg" alt="" loading="lazy" data-cap-vi="Lắp ráp linh kiện" data-cap-en="Assembling components"><figcaption data-vi>Lắp ráp</figcaption><figcaption data-en>Assembly</figcaption></figure>
+      <figure class="rv d1 zoom" data-lb="proj"><img src="images/prototype-laptop.jpg" alt="" loading="lazy" data-cap-vi="Chạy thử nguyên mẫu" data-cap-en="Running the prototype"><figcaption data-vi>Nguyên mẫu</figcaption><figcaption data-en>Prototype</figcaption></figure>
+      <figure class="rv zoom" data-lb="proj"><img src="images/solder-1.jpg" alt="" loading="lazy" data-cap-vi="Hàn bo mạch" data-cap-en="Soldering the PCB"><figcaption data-vi>Bo mạch</figcaption><figcaption data-en>PCB</figcaption></figure>
+      <figure class="b-wide rv d1 zoom" data-lb="proj"><img src="images/assembly-2.jpg" alt="" loading="lazy" data-cap-vi="Đấu nối dây cảm biến" data-cap-en="Wiring the sensors"><figcaption data-vi>Đấu nối</figcaption><figcaption data-en>Wiring</figcaption></figure>
+      <figure class="rv d2 zoom" data-lb="proj"><img src="images/solder-2.jpg" alt="" loading="lazy" data-cap-vi="Hoàn thiện mối hàn" data-cap-en="Finishing solder joints"><figcaption data-vi>Chi tiết</figcaption><figcaption data-en>Detail</figcaption></figure>
+    </div>
+
+    <div class="steps">
+      <div class="step rv"><div class="n">01</div><h4 data-vi>Phát hiện</h4><h4 data-en>Detect</h4><p data-vi>Cảm biến ESP32 đo PM2.5, PM10, CO₂, NO₂, nhiệt độ, độ ẩm.</p><p data-en>ESP32 sensors measure PM2.5, PM10, CO₂, NO₂, temperature and humidity.</p></div>
+      <div class="step rv d1"><div class="n">02</div><h4 data-vi>Phân tích</h4><h4 data-en>Analyse</h4><p data-vi>AI (hồi quy / LSTM) nhận diện và dự báo đỉnh ô nhiễm.</p><p data-en>AI (regression / LSTM) detects and forecasts pollution spikes.</p></div>
+      <div class="step rv d2"><div class="n">03</div><h4 data-vi>Điều chỉnh</h4><h4 data-en>Regulate</h4><p data-vi>Vượt ngưỡng, mô-đun lọc khí tự động bật.</p><p data-en>Above threshold, the filtration module switches on.</p></div>
+      <div class="step rv d3"><div class="n">04</div><h4 data-vi>Báo cáo</h4><h4 data-en>Report</h4><p data-vi>Dashboard AQI theo màu, lịch sử và cảnh báo trên web/app.</p><p data-en>Colour-coded AQI dashboard, history and alerts on web/app.</p></div>
+    </div>
+
+    <div class="slides rv">
+      <h4><span data-vi>Hồ sơ dự án (STEM portfolio)</span><span data-en>Project deck (STEM portfolio)</span><span data-vi>Kéo ngang →</span><span data-en>Scroll →</span></h4>
+      <div class="strip">
+        <img class="zoom" data-lb="deck" src="images/airguard-slide-01.jpg" alt="" loading="lazy" data-cap-vi="AirGuard: trang bìa" data-cap-en="AirGuard: cover">
+        <img class="zoom" data-lb="deck" src="images/airguard-slide-02.jpg" alt="" loading="lazy" data-cap-vi="Giới thiệu" data-cap-en="Introduction">
+        <img class="zoom" data-lb="deck" src="images/airguard-slide-03.jpg" alt="" loading="lazy" data-cap-vi="Tầm nhìn" data-cap-en="The vision">
+        <img class="zoom" data-lb="deck" src="images/airguard-slide-06.jpg" alt="" loading="lazy" data-cap-vi="Cách hoạt động" data-cap-en="How it works">
+        <img class="zoom" data-lb="deck" src="images/airguard-slide-07.jpg" alt="" loading="lazy" data-cap-vi="Giao diện người dùng" data-cap-en="Interface & user design">
+        <img class="zoom" data-lb="deck" src="images/airguard-slide-09.jpg" alt="" loading="lazy" data-cap-vi="Kết quả thử nghiệm" data-cap-en="Testing & survey results">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LEADERSHIP & ACTIVITIES ========== -->
+<section id="activities" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow rv"><span data-vi>Lãnh đạo &amp; Cộng đồng</span><span data-en>Leadership &amp; Community</span></div>
+      <h2 class="rv d1"><span data-vi>Hoạt động ngoại khoá</span><span data-en>Beyond the classroom</span></h2>
+    </div>
+
+    <div class="lead">
+      <div class="card rv">
+        <h3 data-vi>Trưởng ban Học thuật</h3><h3 data-en>Academic Board Leader</h3>
+        <div class="org">STEM · Workshops</div>
+        <div class="nums"><div><b data-count="15" data-suf="+">0</b><span data-vi>Học phần</span><span data-en>Modules</span></div><div><b data-count="200" data-suf="+">0</b><span data-vi>Học sinh</span><span data-en>Students</span></div><div><b data-count="90" data-suf="%">0</b><span data-vi>Tỉ lệ tham dự</span><span data-en>Attendance</span></div></div>
+        <ul>
+          <li data-vi>Thiết kế 15+ học phần và 4 đề thi thử cho 200+ học sinh.</li><li data-en>Designed 15+ modules and 4 mock exams for 200+ students.</li>
+          <li data-vi>Dẫn dắt nhóm 12 người tổ chức workshop kỹ thuật 2 tuần/lần.</li><li data-en>Led a 12-member team running bi-weekly technical workshops.</li>
+          <li data-vi>Phối hợp giáo viên gắn dự án với chương trình STEM, tăng 30% lượt đăng ký thi.</li><li data-en>Aligned projects with the STEM curriculum, raising competition enrollment by 30%.</li>
+        </ul>
+      </div>
+      <div class="card rv d1">
+        <h3 data-vi>Trưởng ban Tổ chức</h3><h3 data-en>Lead Organizer</h3>
+        <div class="org">“Hope After the Storm”</div>
+        <div class="goal"><span data-vi>Gây quỹ $2,000 trong 3 tuần · đạt 125% mục tiêu</span><span data-en>Raised $2,000 in 3 weeks · 125% of goal</span><div class="track"><i data-w="100"></i></div></div>
+        <div class="nums"><div><b data-count="500" data-suf="+">0</b><span data-vi>Bộ đồ dùng học tập</span><span data-en>School kits</span></div><div><b data-count="2" data-suf="t">0</b><span data-vi>Hàng cứu trợ</span><span data-en>Relief goods</span></div><div><b data-count="150" data-suf="+">0</b><span data-vi>Hộ gia đình</span><span data-en>Households</span></div></div>
+        <ul>
+          <li data-vi>Dẫn 3 chuyến cứu trợ tới miền Trung với đồ dùng học tập và áo ấm.</li><li data-en>Led 3 relief trips to Central Vietnam with school kits and winter clothing.</li>
+          <li data-vi>Điều phối tình nguyện viên phân phát an toàn 2 tấn hàng.</li><li data-en>Coordinated volunteers to distribute 2 tons of aid safely.</li>
+        </ul>
+      </div>
+    </div>
+
+    <article class="act rv">
+      <div class="gal">
+        <img class="zoom" data-lb="gh" src="images/green-horizons-3.jpg" alt="" loading="lazy" data-cap-vi="Green Horizons Tuyên Quang 2026" data-cap-en="Green Horizons Tuyên Quang 2026">
+        <img class="zoom" data-lb="gh" src="images/green-horizons-1.jpg" alt="" loading="lazy" data-cap-vi="Buổi sinh hoạt cùng tình nguyện viên" data-cap-en="Volunteer session">
+        <img class="zoom" data-lb="gh" src="images/green-horizons-2.jpg" alt="" loading="lazy" data-cap-vi="Chia sẻ về lối sống bền vững" data-cap-en="Sustainable-living talk">
+      </div>
+      <div>
+        <div class="when">2026 · Tuyên Quang</div>
+        <h3>Green Horizons Project</h3>
+        <p data-vi>Tham gia dự án tình nguyện môi trường tập trung vào trồng rừng và lối sống bền vững; hỗ trợ các chiến dịch nâng cao nhận thức về thói quen thân thiện môi trường tại cộng đồng nông thôn.</p>
+        <p data-en>Joined an environmental volunteer project focused on reforestation and sustainable living, supporting awareness campaigns on eco-friendly habits in rural communities.</p>
+      </div>
+    </article>
+
+    <article class="act rev rv">
+      <div class="gal one">
+        <img class="zoom" data-lb="tet" src="images/tet-am-certificate.jpg?v=2" alt="" loading="lazy" data-cap-vi="Chứng nhận Tết ấm cho em 2025" data-cap-en="Tết Warmth for Children 2025 certificate">
+      </div>
+      <div>
+        <div class="when">2025 · IEG Foundation</div>
+        <h3 data-vi>Tết ấm cho em 2025</h3><h3 data-en>“Tet Warmth for Children 2025”</h3>
+        <p data-vi>Tổ chức 3 chuyến thiện nguyện lên vùng núi, trao 500+ phần quà “Đến trường” và phân phát 2 tấn hàng cứu trợ tới 150+ hộ gia đình, thuộc dự án “School in the Forgotten Land”.</p>
+        <p data-en>Organised 3 relief trips to mountainous regions, delivering 500+ back-to-school kits and 2 tons of aid to 150+ households, under the “School in the Forgotten Land” project.</p>
+      </div>
+    </article>
+
+    <div class="minis">
+      <div class="mini rv"><div class="when">2026</div><h4 data-vi>Bệnh viện Nhi Trung ương</h4><h4 data-en>Vietnam National Children's Hospital</h4><p data-vi>Cùng hai bạn tài trợ 3.000.000đ viện phí cho một bệnh nhi tại Khoa Tai Mũi Họng; nhận thư cảm ơn của bệnh viện.</p><p data-en>Co-sponsored 3,000,000 VND in treatment costs for a young ENT patient, acknowledged with a thank-you letter from the hospital.</p></div>
+      <div class="mini rv d1"><div class="when">2025</div><h4 data-vi>Làng trẻ SOS Hà Nội</h4><h4 data-en>SOS Children's Village Hanoi</h4><p data-vi>Hỗ trợ các chương trình giáo dục và vui chơi cho trẻ em có hoàn cảnh khó khăn.</p><p data-en>Supported educational and recreational programs for disadvantaged children.</p></div>
+      <div class="mini rv d2"><div class="when">Debate</div><h4 data-vi>Tranh biện cấp quốc gia</h4><h4 data-en>Competitive Debater</h4><p data-vi>20+ hồ sơ lập luận, 50+ giờ nghiên cứu; vào Tứ kết giải đấu 40+ đội.</p><p data-en>20+ case files and 50+ research hours; quarter-finals in a 40+ team national tournament.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow rv"><span data-vi>Thư viện ảnh</span><span data-en>Gallery</span></div>
+      <h2 class="rv d1"><span data-vi>Khoảnh khắc</span><span data-en>Moments</span></h2>
+    </div>
+    <div class="filters rv" id="filters">
+      <button class="on" data-f="all"><span data-vi>Tất cả</span><span data-en>All</span></button>
+      <button data-f="build"><span data-vi>Dự án</span><span data-en>Project</span></button>
+      <button data-f="award"><span data-vi>Giải thưởng</span><span data-en>Awards</span></button>
+      <button data-f="community"><span data-vi>Cộng đồng</span><span data-en>Community</span></button>
+    </div>
+    <div class="masonry" id="masonry">
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/airguard-coding.jpg" loading="lazy" alt="" data-cap-vi="Lập trình cảm biến AirGuard" data-cap-en="Programming the AirGuard sensor"></figure>
+      <figure data-c="award"><img class="zoom" data-lb="all" src="images/aigc-certificate.jpg?v=2" loading="lazy" alt="" data-cap-vi="Huy chương Vàng AIGC" data-cap-en="AIGC Gold Award"></figure>
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/solder-3.jpg" loading="lazy" alt="" data-cap-vi="Hàn mạch nguồn" data-cap-en="Soldering the power board"></figure>
+      <figure data-c="community"><img class="zoom" data-lb="all" src="images/green-horizons-3.jpg" loading="lazy" alt="" data-cap-vi="Green Horizons Tuyên Quang 2026" data-cap-en="Green Horizons Tuyên Quang 2026"></figure>
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/assembly-1.jpg" loading="lazy" alt="" data-cap-vi="Lắp hộp cảm biến" data-cap-en="Assembling the sensor case"></figure>
+      <figure data-c="award"><img class="zoom" data-lb="all" src="images/airguard-pitch.jpg" loading="lazy" alt="" data-cap-vi="Thuyết trình dự án" data-cap-en="Project pitch"></figure>
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/prototype-laptop.jpg" loading="lazy" alt="" data-cap-vi="Chạy thử nguyên mẫu" data-cap-en="Testing the prototype"></figure>
+      <figure data-c="community"><img class="zoom" data-lb="all" src="images/tet-am-certificate.jpg?v=2" loading="lazy" alt="" data-cap-vi="Tết ấm cho em 2025" data-cap-en="Tet Warmth for Children 2025"></figure>
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/solder-1.jpg" loading="lazy" alt="" data-cap-vi="Hàn bo mạch" data-cap-en="Soldering the PCB"></figure>
+      <figure data-c="community"><img class="zoom" data-lb="all" src="images/green-horizons-1.jpg" loading="lazy" alt="" data-cap-vi="Sinh hoạt tình nguyện" data-cap-en="Volunteer session"></figure>
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/assembly-2.jpg" loading="lazy" alt="" data-cap-vi="Đấu nối dây" data-cap-en="Wiring"></figure>
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/assembly-3.jpg" loading="lazy" alt="" data-cap-vi="Lắp ráp linh kiện" data-cap-en="Component assembly"></figure>
+      <figure data-c="community"><img class="zoom" data-lb="all" src="images/green-horizons-2.jpg" loading="lazy" alt="" data-cap-vi="Chia sẻ lối sống xanh" data-cap-en="Green-living talk"></figure>
+      <figure data-c="build"><img class="zoom" data-lb="all" src="images/solder-2.jpg" loading="lazy" alt="" data-cap-vi="Chi tiết mối hàn" data-cap-en="Solder detail"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact rv">
+      <div>
+        <div class="eyebrow" style="color:var(--accent)"><span data-vi>Liên hệ</span><span data-en>Contact</span></div>
+        <h2><span data-vi>Cùng xây điều gì đó hữu ích.</span><span data-en>Let's build something useful.</span></h2>
+        <p><span data-vi>Sẵn sàng cho các dự án kỹ thuật, hợp tác nghiên cứu và cuộc thi sáng tạo.</span><span data-en>Open to engineering projects, research collaborations and innovation competitions.</span></p>
+        <div class="cta"><a class="btn primary" href="TranXuanBach_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg><span data-vi>Tải CV (PDF)</span><span data-en>Download CV (PDF)</span></a></div>
+      </div>
+      <div class="ways">
+        <a class="way" href="mailto:xbach030303@gmail.com"><div><span>Email</span><b>xbach030303@gmail.com</b></div>→</a>
+        <div class="way"><div><span data-vi>Địa điểm</span><span data-en>Location</span><b data-vi>Hà Nội, Việt Nam</b><b data-en>Hanoi, Vietnam</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Trần Xuân Bách</span><span data-vi>Thiết kế tối giản · Hà Nội</span><span data-en>Minimal design · Hanoi</span></div></footer>
+
+<a id="top" href="#home" aria-label="Back to top">↑</a>
+<div id="lb" role="dialog" aria-modal="true"><button class="x" aria-label="Close">×</button><button class="pv" aria-label="Previous">‹</button><img alt=""><button class="nx" aria-label="Next">›</button><div class="cap"></div></div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],root=document.documentElement;
+const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+
+/* language */
+function setLang(l){root.lang=l;store.set('txb-lang',l);$$('.seg button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));document.title=l==='vi'?'Trần Xuân Bách — Portfolio':'Tran Xuan Bach — Portfolio'}
+$$('.seg button').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));setLang(root.lang==='en'?'en':'vi');
+
+/* theme */
+const isDark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+$('#theme').onclick=()=>{const t=isDark()?'light':'dark';root.dataset.theme=t;store.set('txb-theme',t)};
+
+/* mobile menu */
+$('#burger').onclick=()=>$('#menu').classList.toggle('open');
+$$('#menu a').forEach(a=>a.onclick=()=>$('#menu').classList.remove('open'));
+
+/* counters */
+function count(el){const t=+el.dataset.count,d=+(el.dataset.dec||0),s=el.dataset.suf||'',st=performance.now();
+  (function f(n){const k=Math.min(1,(n-st)/1400),e=1-Math.pow(1-k,3);el.textContent=(t*e).toFixed(d)+s;if(k<1)requestAnimationFrame(f)})(st)}
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');
+  el.querySelectorAll('[data-count]').forEach(count);
+  el.querySelectorAll('.bar i,.track i').forEach(b=>b.style.width=b.dataset.w+'%');
+  io.unobserve(el)}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+$$('.rv,.step').forEach(el=>io.observe(el));
+
+/* scroll: header, progress, active link, back-to-top */
+const links=$$('#menu a'),secs=links.map(a=>$(a.getAttribute('href')));
+function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  $('#hdr').classList.toggle('solid',y>10);$('#bar').style.width=(y/h*100)+'%';$('#top').classList.toggle('show',y>700);
+  let c=-1;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<innerHeight*.35)c=i});links.forEach((a,i)=>a.classList.toggle('active',i===c))}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* gallery filter */
+$$('#filters button').forEach(b=>b.onclick=()=>{$$('#filters button').forEach(x=>x.classList.toggle('on',x===b));
+  $$('#masonry figure').forEach(f=>f.classList.toggle('hide',b.dataset.f!=='all'&&f.dataset.c!==b.dataset.f))});
+
+/* lightbox */
+const lb=$('#lb'),lbImg=lb.querySelector('img'),cap=lb.querySelector('.cap');let group=[],idx=0;
+const imgOf=el=>el.tagName==='IMG'?el:el.querySelector('img');
+function show(){const im=group[idx];lbImg.src=im.src;cap.textContent=im.dataset['cap'+(root.lang==='en'?'En':'Vi')]||'';}
+function open(el){const g=el.dataset.lb;group=$$(`[data-lb="${g}"]`).filter(x=>!x.closest('figure.hide')).map(imgOf);idx=group.indexOf(imgOf(el));show();lb.classList.add('open');document.body.style.overflow='hidden'}
+function close(){lb.classList.remove('open');document.body.style.overflow=''}
+$$('.zoom').forEach(el=>el.addEventListener('click',()=>open(el)));
+lb.querySelector('.x').onclick=close;lb.onclick=e=>{if(e.target===lb)close()};
+lb.querySelector('.pv').onclick=e=>{e.stopPropagation();idx=(idx-1+group.length)%group.length;show()};
+lb.querySelector('.nx').onclick=e=>{e.stopPropagation();idx=(idx+1)%group.length;show()};
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')lb.querySelector('.pv').click();if(e.key==='ArrowRight')lb.querySelector('.nx').click()});
+})();
+</script>
+</body>
+</html>
